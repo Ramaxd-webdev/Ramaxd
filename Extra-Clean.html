@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Extra Clean Bali</title>
+    <style>
+        /* Reset Margin dan Padding */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+           h2 {
+            font-size: 2.5rem;
+            text-align: center;
+            margin-top: 50px;
+            opacity: 0; /* Initially hidden */
+            animation: fadeIn 2s ease-out forwards, colorChange 5s infinite;
+        }
+
+        p {
+            font-size: 1.2rem;
+            text-align: center;
+            opacity: 0;
+            animation: fadeIn 2s ease-out forwards;
+            animation-delay: 1s; /* Delay the fade-in for the paragraphs */
+        }
+
+        /* Keyframes for fade-in effect */
+        @keyframes fadeIn {
+            0% {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Keyframes for text color change effect */
+        @keyframes colorChange {
+            0% {
+                color: #ff3e00;
+            }
+            25% {
+                color: #ff8800;
+            }
+            50% {
+                color: #00b4d8;
+            }
+            75% {
+                color: #48cae4;
+            }
+            100% {
+                color: #ff3e00;
+            }
+        }
+
+        /* Style untuk Navbar */
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: #333;
+            padding: 10px 20px;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .navbar a {
+            color: white;
+            padding: 14px 20px;
+            text-decoration: none;
+            text-align: center;
+            font-family: Arial, sans-serif;
+        }
+
+        .navbar a:hover {
+            background-color: #ddd;
+            color: black;
+        }
+
+        /* Style untuk Parallax */
+        .parallax {
+            height: 500px;
+            background-attachment: fixed;
+            background-size: cover;
+            background-position: center;
+        }
+
+        #parallax1 {
+            background-image: url('pllx01.jpg'); /* Ganti dengan path gambar Anda */
+        }
+
+        #parallax2 {
+            background-image: url('pllx02.jpg'); /* Ganti dengan path gambar Anda */
+        }
+
+        /* Style untuk Slider Otomatis */
+        
+        .slider, .team-slider, .gallery-slider {
+            width: 100%;
+            height: 300px;
+            overflow: hidden;
+            position: relative;
+            margin: 60px 0; /* Untuk menghindari navbar */
+        }
+
+        .slide, .team-slide, .gallery-slide {
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            opacity: 0;
+            transition: opacity 1s ease-in-out;
+        }
+
+        .active {
+            opacity: 1;
+        }
+
+        /* Style untuk Konten */
+        .content {
+            padding: 50px 20px;
+            text-align: center;
+            background-color: #f4f4f4;
+            font-family: Arial, sans-serif;
+        }
+
+        /* Style untuk Layanan */
+        .services {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+            padding: 50px 20px;
+            background-color: #fff;
+        }
+
+        .service {
+            background-color: #e2e2e2;
+            padding: 20px;
+            width: 200px;
+            border-radius: 8px;
+        }
+
+        /* Style untuk Team Kami dan Gallery */
+        .team-slider, .gallery-slider {
+            height: 100px;
+        }
+
+        .team-slide, .gallery-slide {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #ddd;
+            font-size: 24px;
+            color: #333;
+        }
+
+        /* Style untuk Client List */
+        .clients {
+            padding: 50px 20px;
+            background-color: #f4f4f4;
+        }
+
+        .client-list {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        .client {
+            background-color: #e2e2e2;
+            padding: 20px;
+            width: 150px;
+            border-radius: 8px;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .services, .client-list {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .service, .client {
+                width: 80%;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navbar -->
+    <div class="navbar">
+        <div class="logo">
+          <img src="pllx01.jpg" alt="company logo" style="height: 50px; width= auto;">
+        </div>
+        <div class="nav-links">
+            <a href="#tentang">Tentang Kami</a>
+            <a href="#visi-misi">Visi Misi & Goal</a>
+            <a href="#layanan">Layanan</a>
+            <a href="#team">Team Kami</a>
+            <a href="#gallery">Gallery</a>
+            <a href="#clients">Client List</a>
+        </div>
+    </div>
+
+    <!-- Parallax 1 -->
+    <div class="parallax" id="parallax1"></div>
+
+    <!-- Tentang Kami -->
+    <div class="content" id="tentang">
+        <h1>Tentang Kami</h1>
+        <p>Deskripsi tentang perusahaan atau organisasi Anda. Ceritakan sejarah, misi, dan nilai-nilai yang dipegang.</p>
+    </div>
+
+    <!-- Visi, Misi, dan Goal -->
+    <div class="content" id="visi-misi">
+        <h1>Visi, Misi & Goal</h1>
+        <h2>Visi</h2>
+        <p>Visi perusahaan Anda.</p>
+        <h2>Misi</h2>
+        <p>Misi perusahaan Anda.</p>
+        <h2>Goal</h2>
+        <p>Tujuan-tujuan yang ingin dicapai.</p>
+    </div>
+
+    <!-- Layanan/Specialist -->
+    <div class="services" id="layanan">
+        <div class="service">
+            <h3>Layanan 1</h3>
+            <p>Deskripsi layanan 1.</p>
+        </div>
+        <div class="service">
+            <h3>Layanan 2</h3>
+            <p>Deskripsi layanan 2.</p>
+        </div>
+        <div class="service">
+            <h3>Layanan 3</h3>
+            <p>Deskripsi layanan 3.</p>
+        </div>
+        <div class="service">
+            <h3>Layanan 4</h3>
+            <p>Deskripsi layanan 4.</p>
+        </div>
+        <div class="service">
+            <h3>Layanan 5</h3>
+            <p>Deskripsi layanan 5.</p>
+        </div>
+    </div>
+
+    <!-- Slider Utama -->
+    <div class="slider" id="slider">
+        <div class="slide active" style="background-color: #ff9999;">Slide Utama 1</div>
+        <div class="slide" style="background-color: #99ff99;">Slide Utama 2</div>
+        <div class="slide" style="background-color: #9999ff;">Slide Utama 3</div>
+    </div>
+
+    <!-- Team Kami -->
+    <div class="content" id="team">
+        <h1>Team Kami</h1>
+        <div class="team-slider">
+            <div class="team-slide active">
+              <img src="owner.jpg" alt="owner anggota">
+              <p>Founder Perusahaan</p>
+            </div>
+            <div class="team-slide">Anggota Tim 2</div>
+            <div class="team-slide">Anggota Tim 3</div>
+            <div class="team-slide">Anggota Tim 4</div>
+        </div>
+    </div>
+
+    <!-- Gallery -->
+    <div class="content" id="gallery">
+        <h1>Gallery</h1>
+        <div class="gallery-slider">
+            <div class="gallery-slide active">Gambar 1</div>
+            <div class="gallery-slide">Gambar 2</div>
+            <div class="gallery-slide">Gambar 3</div>
+            <div class="gallery-slide">Gambar 4</div>
+        </div>
+    </div>
+
+    <!-- Client List -->
+    <div class="clients" id="clients">
+        <h1>Client List</h1>
+        <div class="client-list">
+            <div class="client">Klien 1</div>
+            <div class="client">Klien 2</div>
+            <div class="client">Klien 3</div>
+            <div class="client">Klien 4</div>
+            <div class="client">Klien 5</div>
+            <div class="client">Klien 6</div>
+        </div>
+    </div>
+
+    <!-- Parallax 2 -->
+    <div class="parallax" id="parallax2"></div>
+    
+
+    <!-- Footer -->
+    <div class="content">
+        <h1></h1>
+        <p>&copy; 2024 Perusahaan Anda. Semua hak dilindungi.</p>
+    </div>
+
+    <script>
+        // Efek Parallax
+        window.addEventListener('scroll', function() {
+            let scrollTop = window.pageYOffset;
+            let parallax1 = document.getElementById('parallax1');
+            let parallax2 = document.getElementById('parallax2');
+            parallax1.style.backgroundPositionY = -(scrollTop * 0.5) + 'px';
+            parallax2.style.backgroundPositionY = -(scrollTop * 0.3) + 'px';
+        });
+
+        // Fungsi untuk Slider Otomatis
+        function setupSlider(sliderClass, slideClass, intervalTime) {
+            let slides = document.querySelectorAll(`.${slideClass}`);
+            let currentSlide = 0;
+
+            function showSlide(index) {
+                slides.forEach((slide, i) => {
+                    slide.classList.remove('active');
+                    if (i === index) {
+                        slide.classList.add('active');
+                    }
+                });
+            }
+
+            function nextSlide() {
+                currentSlide = (currentSlide + 1) % slides.length;
+                showSlide(currentSlide);
+            }
+
+            // Pindah slide otomatis setiap intervalTime milidetik
+            setInterval(nextSlide, intervalTime);
+
+            // Menampilkan slide pertama
+            showSlide(currentSlide);
+        }
+
+        // Slider Utama
+        setupSlider('slider', 'slide', 3000);
+
+        // Team Kami Slider
+        setupSlider('team-slider', 'team-slide', 4000);
+
+        // Gallery Slider
+        setupSlider('gallery-slider', 'gallery-slide', 5000);
+    </script>
+</body>
+</html>
